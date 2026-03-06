@@ -4,87 +4,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- Page Title (keep as-is for the purple title text) -->
-  <title>Welcome to Opelion Global Private Limited</title>
-    <!-- WebSite Schema (PRIMARY signal for Google site name) -->
-  <!-- Newly added for SEO Title -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Opelion Global Private Limited",
-  "alternateName": "Opelion Global Pvt Ltd",
-  "url": "https://opelionglobal.com/"
-}
-</script>
-
-  <!--Till here -->
-
-    <!-- Organization Schema (Recommended) -->
- <!-- <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Opelion Global Private Limited",
-    "url": "https://opelionglobal.com/"
-  }
-   
-  </script> -->
-<script type="application/ld+json">
-  {
- "@type": "Organization",
- "name": "Opelion Global Private Limited",
- "url": "https://opelionglobal.com/",
- "logo": "https://opelionglobal.com/Images/new_logo_for_header.jpg",
- "sameAs": [
-   "https://www.linkedin.com/company/opelion-global-private-limited"
- ]
-}
-  </script> 
-
-  <!-- Browser- site label (For Opelion Global Private Limited) -->
-  <meta name="application-name" content="Opelion Global Private Limited">
   
-  <!-- Open Graph Site Name (controls Google site name hint) -->
+  <!-- Page Title (SEO Optimized) -->
+  <title>Welcome to Opelion Global Private Limited</title>
+  
+  <!-- SEO Essentials -->
+  <link rel="canonical" href="https://opelionglobal.com/" />
+  <meta name="description" content="Opelion Global Private Limited specializes in the end-to-end sourcing, processing, quality assurance, and export of premium agro products to International markets." />
+  <meta name="keywords" content="Opelion Global, agro export India, quinoa export, Indian spices, millet exporters, global trade" />
+  <meta name="author" content="Opelion Global Private Limited" />
+  <meta name="application-name" content="Opelion Global Private Limited">
   <meta property="og:site_name" content="Opelion Global Private Limited">
 
+  <!-- Consolidated Schema (Combined WebSite & Organization for Google Site Name accuracy) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Opelion Global Private Limited",
+        "alternateName": "Opelion Global",
+        "url": "https://opelionglobal.com/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Opelion Global Private Limited",
+        "url": "https://opelionglobal.com/",
+        "logo": "https://opelionglobal.com/Images/New_logo_for_header.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/company/opelion-global-private-limited/"
+        ]
+      }
+    ]
+  }
+  </script>
 
-  <!-- Google Analytics tag (gtag.js) -->
+  <!-- Google Analytics (Verified ID: G-2PE24GWJJL) -->
+  <!-- We removed the SPKRT tag to avoid double-counting and page slowdown -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PE24GWJJL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-2PE24GWJJL');
   </script>
-  <!-- ✅ SEO Meta Description -->
-  <meta name="description"
-    content="Opelion Global Private Limited specializes in the end-to-end sourcing, processing, quality assurance, and export of premium agro products to International markets." />
-  <meta name="keywords"
-    content="Opelion Global, global trade, business solutions, export import, supply chain, trading company, international business" />
-  <meta name="author" content="Opelion Global Private Limited" />
 
-  <!-- Load Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Load Lucide Icons for features -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Link to external CSS file for custom styles -->
+  <!-- External Resources with Versions (Fixes Redirection Errors in GSC) -->
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <script src="https://unpkg.com/lucide@0.477.0"></script>
+  
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link rel="icon" href="/Images/"> -->
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
-
-  <!-- Custom Tailwind Configuration (Must remain here after the CDN link) -->
+  <!-- Custom Tailwind Configuration (Exact same setup) -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             'cream-bg': '#fcfaf7',
-            'primary-dark': '#292524', // Stone-900 equivalent for text
-            'accent-brown': '#7c5f40', // Deep brown/orange for primary elements
-            'light-tan': '#f2f0ec', // Lighter container background
+            'primary-dark': '#292524',
+            'accent-brown': '#7c5f40',
+            'light-tan': '#f2f0ec',
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
@@ -99,7 +84,7 @@
       }
     }
   </script>
-
+</head>
 
 <!-- <body> -->
 
