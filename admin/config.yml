@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: Images/blog
+public_folder: /Images/blog
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string", default: "Opelion Team"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Cover Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
