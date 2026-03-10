@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Opelion Global Private Limited</title>
+  <link rel="canonical" href="https://opelionglobal.com/blog.html" />
+  <meta name="description" content="Insights, news and expert perspectives from Opelion Global — India's trusted agro export partner." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:      #f7f2ea;
+      --cream-dark: #ede5d5;
+      --cream-mid:  #f0e8d8;
+      --white:      #ffffff;
+      --brown:      #8B5E3C;
+      --brown-dark: #6E482F;
+      --brown-mid:  #B48D64;
+      --brown-pale: #f5ede1;
+      --teal:       #1a7a8a;
+      --gold:       #f5b800;
+      --ink:        #2a1f14;
+      --ink-mid:    #5a4535;
+      --ink-muted:  #9a8070;
+      --shadow:     rgba(139,94,60,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+    /* HEADER — exact match to existing site */
+    .site-header { background: var(--white); box-shadow: 0 2px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .header-logo img { height: 56px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 40px; }
+    .nav-link { font-size: 0.95rem; font-weight: 600; color: #333; text-decoration: none; position: relative; transition: color 0.2s; font-family: 'DM Sans', sans-serif; }
+    .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--brown); transition:width 0.3s; }
+    .nav-link:hover { color: var(--brown); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: var(--brown); }
+    .btn-cta { padding: 9px 22px; background: var(--brown); color: var(--white); font-family: 'Times New Roman', serif; font-size: 0.88rem; font-weight: 700; text-decoration: none; border-radius: 8px; box-shadow: 0 2px 8px rgba(139,94,60,0.2); transition: background 0.2s, transform 0.15s; }
+    .btn-cta:hover { background: var(--brown-dark); transform: translateY(-1px); }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+    .mobile-nav { display: none; background: var(--white); border-top: 1px solid var(--cream-dark); padding: 20px 32px; flex-direction: column; gap: 16px; }
+    .mobile-nav.open { display: flex; }
+
+    /* PAGE */
+    .page-body { padding: 14px; }
+    .page-card { background: var(--white); border-radius: 40px; box-shadow: 0 8px 48px rgba(0,0,0,0.06); overflow: hidden; }
+
+    /* HERO — warm magazine style */
+    .blog-hero {
+      position: relative;
+      background: var(--cream-dark);
+      padding: 72px 64px 64px;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute; bottom: 0; right: 0;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle at bottom right, rgba(180,141,100,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* Decorative lines */
+    .hero-deco {
+      position: absolute; top: 0; right: 120px;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(139,94,60,0.12), transparent);
+    }
+    .hero-deco2 {
+      position: absolute; top: 0; right: 240px;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(139,94,60,0.07), transparent);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 600px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .hero-eyebrow-line { width: 28px; height: 1.5px; background: var(--brown); }
+    .hero-eyebrow-text { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--brown); font-family: 'DM Sans', sans-serif; }
+    .hero-title { font-family: 'Crimson Pro', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 600; color: var(--ink); line-height: 1.15; margin-bottom: 14px; }
+    .hero-title em { color: var(--brown); font-style: italic; }
+    .hero-subtitle { font-size: 1rem; font-weight: 300; color: var(--ink-muted); max-width: 440px; line-height: 1.8; margin-bottom: 36px; }
+    .search-bar { display: flex; align-items: center; gap: 12px; background: var(--white); border: 1px solid var(--cream-dark); border-radius: 10px; padding: 12px 18px; max-width: 380px; box-shadow: 0 2px 12px rgba(139,94,60,0.07); }
+    .search-bar input { background: none; border: none; outline: none; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--ink); width: 100%; }
+    .search-bar input::placeholder { color: var(--ink-muted); }
+
+    /* FILTERS */
+    .filter-strip { padding: 28px 48px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .filter-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-right: 4px; }
+    .pill { padding: 6px 18px; border-radius: 24px; border: 1.5px solid var(--cream-dark); background: var(--white); color: var(--ink-mid); font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+    .pill:hover { border-color: var(--brown); color: var(--brown); }
+    .pill.active { background: var(--brown); border-color: var(--brown); color: var(--white); }
+
+    /* DIVIDER */
+    .rule { margin: 24px 48px 36px; height: 1.5px; background: linear-gradient(90deg, var(--brown), rgba(139,94,60,0.2), transparent); border-radius: 2px; }
+
+    /* FEATURED */
+    .featured-wrap { padding: 0 48px; margin-bottom: 52px; }
+    .sec-label { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .sec-label-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+    .sec-label-line { flex: 1; height: 1px; background: var(--cream-dark); }
+
+    .featured-card { display: grid; grid-template-columns: 1.1fr 1fr; border-radius: 20px; overflow: hidden; text-decoration: none; color: inherit; background: var(--white); border: 1px solid rgba(139,94,60,0.1); box-shadow: 0 4px 24px var(--shadow); transition: transform 0.35s, box-shadow 0.35s; }
+    .featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 52px rgba(139,94,60,0.18); }
+    .feat-img-wrap { overflow: hidden; }
+    .feat-img { width: 100%; height: 100%; object-fit: cover; min-height: 340px; display: block; transition: transform 0.5s; }
+    .featured-card:hover .feat-img { transform: scale(1.04); }
+    .feat-placeholder { min-height: 340px; background: linear-gradient(135deg, var(--brown-pale), var(--cream-dark)); display: flex; align-items: center; justify-content: center; }
+    .feat-body { padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .feat-flag { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .feat-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .feat-flag-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brown-mid); }
+    .feat-title { font-family: 'Crimson Pro', serif; font-size: 1.8rem; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 12px; }
+    .feat-excerpt { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: 26px; }
+    .feat-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+    .av { width: 30px; height: 30px; border-radius: 50%; background: var(--brown-pale); border: 1.5px solid rgba(139,94,60,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--brown); }
+    .av-name { font-size: 0.8rem; color: var(--ink-mid); }
+    .av-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--cream-dark); }
+    .av-date { font-size: 0.77rem; color: var(--ink-muted); }
+    .read-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; background: var(--brown); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.15s; align-self: flex-start; }
+    .read-btn:hover { background: var(--brown-dark); transform: translateX(2px); }
+
+    /* GRID */
+    .posts-wrap { padding: 0 48px 56px; }
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .post-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid rgba(139,94,60,0.08); box-shadow: 0 2px 16px rgba(0,0,0,0.04); text-decoration: none; color: inherit; display: flex; flex-direction: column; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+    .post-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow); }
+    .post-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--brown),var(--brown-mid)); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+    .post-card:hover::before { transform: scaleX(1); }
+    .card-img-wrap { overflow: hidden; }
+    .card-img { width: 100%; height: 190px; object-fit: cover; display: block; transition: transform 0.5s; }
+    .post-card:hover .card-img { transform: scale(1.05); }
+    .card-placeholder { height: 190px; background: linear-gradient(135deg, var(--brown-pale), var(--cream-dark)); display: flex; align-items: center; justify-content: center; }
+    .card-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .tag-chip { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); background: var(--brown-pale); padding: 3px 10px; border-radius: 4px; }
+    .card-date { font-size: 0.72rem; color: var(--ink-muted); }
+    .card-title { font-family: 'Crimson Pro', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 10px; }
+    .card-excerpt { font-size: 0.84rem; color: var(--ink-mid); line-height: 1.75; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 16px; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--cream-mid); }
+    .read-more { font-size: 0.78rem; color: var(--brown); font-weight: 600; }
+
+    /* EMPTY */
+    .empty-state { padding: 80px; text-align: center; }
+    .empty-icon { width: 68px; height: 68px; background: var(--brown-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .empty-state h3 { font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 8px; }
+    .empty-state p { font-size: 0.9rem; color: var(--ink-muted); }
+    .empty-state a { color: var(--brown); }
+
+    .spinner-wrap { padding: 80px; display: flex; justify-content: center; }
+    .spinner { width: 36px; height: 36px; border: 2px solid var(--cream-dark); border-top-color: var(--brown); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .fade-up { animation: fadeUp 0.5s ease both; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+    /* FOOTER */
+    .site-footer { background: var(--cream); padding: 56px 0 0; margin-top: 14px; border-top: 1px solid var(--cream-dark); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 48px; align-items: start; }
+    .footer-brand-name { font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--ink); margin-bottom: 6px; }
+    .footer-brand-tag { font-size: 0.85rem; color: var(--ink-muted); }
+    .footer-heading { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brown); margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.88rem; color: var(--ink-mid); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover, .footer-links .active-link { color: var(--brown); }
+    .footer-services { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-services li { font-size: 0.88rem; color: var(--ink-mid); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials img { width: 20px; height: 20px; opacity: 0.65; transition: opacity 0.2s; }
+    .footer-socials a:hover img { opacity: 1; }
+    .footer-bottom { border-top: 1px solid var(--cream-dark); margin-top: 48px; padding: 20px 48px; text-align: center; font-size: 0.82rem; color: var(--ink-muted); }
+
+    .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; background: var(--brown); color: var(--white); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px var(--shadow); opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.2s; }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-2px); background: var(--brown-dark); }
+
+    @media(max-width:1024px) { .posts-grid{grid-template-columns:repeat(2,1fr);} .footer-inner{grid-template-columns:1fr 1fr;gap:32px;} }
+    @media(max-width:768px) { .header-nav,.btn-cta{display:none;} .menu-toggle{display:block;} .blog-hero{padding:48px 28px;} .filter-strip,.featured-wrap,.posts-wrap{padding-left:24px;padding-right:24px;} .featured-card{grid-template-columns:1fr;} .feat-img,.feat-placeholder{min-height:220px;} .feat-body{padding:28px;} .footer-inner{grid-template-columns:1fr 1fr;padding:0 24px;gap:24px;} .footer-bottom{padding:20px 24px;} }
+    @media(max-width:480px) { .page-body{padding:10px;} .posts-grid{grid-template-columns:1fr;} .footer-inner{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/index.html"><img src="/Images/New_logo_for_header.jpg" alt="Opelion Global" style="height:56px;width:auto;display:block;"></a>
+      <nav class="header-nav">
+        <a href="/index.html#home" class="nav-link">Home</a>
+        <a href="/index.html#about" class="nav-link">About</a>
+        <a href="/index.html#products" class="nav-link">Products</a>
+        <a href="/blog.html" class="nav-link active">Blog</a>
+      </nav>
+      <a href="/index.html#contact" class="btn-cta">GET IN TOUCH</a>
+      <button class="menu-toggle" id="menuToggle">
+        <svg width="24" height="24" fill="none" stroke="#8B5E3C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="/index.html#home" class="nav-link">Home</a>
+      <a href="/index.html#about" class="nav-link">About</a>
+      <a href="/index.html#products" class="nav-link">Products</a>
+      <a href="/blog.html" class="nav-link active">Blog</a>
+      <a href="/index.html#contact" class="btn-cta" style="text-align:center">GET IN TOUCH</a>
+    </div>
+  </header>
+
+  <div class="page-body">
+    <div class="page-card">
+      <section class="blog-hero">
+        <div class="hero-deco"></div><div class="hero-deco2"></div>
+        <div class="hero-content">
+          <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span><span class="hero-eyebrow-text">Insights & Perspectives</span></div>
+          <h1 class="hero-title">Global Trade <em>Perspectives</em></h1>
+          <p class="hero-subtitle">Expert insights on agro exports, market trends, and India's growing role in global food supply chains.</p>
+          <div class="search-bar">
+            <svg width="16" height="16" fill="none" stroke="#8B5E3C" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" id="searchInput" placeholder="Search articles…" oninput="filterPosts()">
+          </div>
+        </div>
+      </section>
+
+      <div class="filter-strip">
+        <span class="filter-label">Filter:</span>
+        <button class="pill active" onclick="setFilter('all',this)">All</button>
+        <button class="pill" onclick="setFilter('trade',this)">Trade</button>
+        <button class="pill" onclick="setFilter('agriculture',this)">Agriculture</button>
+        <button class="pill" onclick="setFilter('market',this)">Market</button>
+        <button class="pill" onclick="setFilter('news',this)">News</button>
+        <button class="pill" onclick="setFilter('export',this)">Export</button>
+      </div>
+      <div class="rule"></div>
+      <div id="blogContent"><div class="spinner-wrap"><div class="spinner"></div></div></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><div class="footer-brand-name">Opelion Global Private Limited.</div><div class="footer-brand-tag">Where Quality Meets Trust.</div></div>
+      <div>
+        <div class="footer-heading">Menu</div>
+        <ul class="footer-links">
+          <li><a href="/index.html#home">Home</a></li><li><a href="/index.html#about">About</a></li>
+          <li><a href="/index.html#products">Products</a></li><li><a href="/blog.html" class="active-link">Blog</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Services</div>
+        <ul class="footer-services"><li>Private Labeling</li><li>White Labeling</li><li>Bulk Export</li><li>Custom Packaging</li></ul>
+      </div>
+      <div>
+        <div class="footer-heading" style="margin-bottom:16px">Follow Us</div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/share/1GpQRnim2z/" target="_blank"><img src="/Images/fb.png" alt="Facebook"></a>
+          <a href="https://x.com/opelionglobal" target="_blank"><img src="/Images/twitter.png" alt="Twitter"></a>
+          <a href="https://www.instagram.com/opelionnglobal/" target="_blank"><img src="/Images/instagram.png" alt="Instagram"></a>
+          <a href="https://www.linkedin.com/company/108613234/" target="_blank"><img src="/Images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">Copyright &copy; 2025 Opelion Global Pvt. Ltd. All Rights Reserved.</div>
+  </footer>
+
+  <button class="back-to-top" id="backTop"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></button>
+
+  <script>
+    const GITHUB_USER='Team-Opelion-Global', GITHUB_REPO='Opelion-Global', POSTS_FOLDER='_posts';
+    let allPosts=[], activeFilter='all';
+    document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('mobileNav').classList.toggle('open'));
+    const backTop=document.getElementById('backTop');
+    window.addEventListener('scroll',()=>backTop.classList.toggle('visible',window.scrollY>400));
+    backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    async function loadPosts(){
+      try{
+        const res=await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${POSTS_FOLDER}`);
+        if(!res.ok)throw new Error();
+        const files=await res.json();
+        const md=files.filter(f=>f.name.endsWith('.md'));
+        if(!md.length){showEmpty();return;}
+        const posts=await Promise.all(md.map(async f=>{const r=await fetch(f.download_url);return parsePost(await r.text(),f.name);}));
+        allPosts=posts.sort((a,b)=>new Date(b.date)-new Date(a.date));
+        renderPosts(allPosts);
+      }catch(e){showEmpty();}
+    }
+    function parsePost(text,filename){
+      const fm=text.match(/^---\n([\s\S]*?)\n---/);
+      const body=text.replace(/^---[\s\S]*?---/,'').trim();
+      const meta={};
+      if(fm)fm[1].split('\n').forEach(l=>{const[k,...v]=l.split(':');if(k)meta[k.trim()]=v.join(':').trim().replace(/^["']|["']$/g,'');});
+      return{title:meta.title||'Untitled',date:meta.date||'',author:meta.author||'Opelion Team',excerpt:meta.excerpt||body.replace(/#+\s/g,'').substring(0,150)+'…',image:meta.image||'',tag:meta.tag||'insights',slug:filename.replace('.md','')};
+    }
+    const placeholderSVG=`<svg width="52" height="52" fill="none" stroke="#8B5E3C" stroke-width="0.8" viewBox="0 0 24 24" opacity="0.25"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M2 12h20"/></svg>`;
+    const fmtDate=d=>d?new Date(d).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}):'';
+    const initials=n=>n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+
+    function renderPosts(posts){
+      const el=document.getElementById('blogContent');
+      if(!posts.length){showEmpty();return;}
+      const[featured,...rest]=posts;
+      let html=`
+        <div class="featured-wrap fade-up">
+          <div class="sec-label"><span class="sec-label-text">Featured</span><span class="sec-label-line"></span></div>
+          <a class="featured-card" href="/post.html?slug=${featured.slug}">
+            <div class="feat-img-wrap">${featured.image?`<img class="feat-img" src="${featured.image}" alt="${featured.title}">`:`<div class="feat-placeholder">${placeholderSVG}</div>`}</div>
+            <div class="feat-body">
+              <div class="feat-flag"><span class="feat-dot"></span><span class="feat-flag-text">Latest Article</span></div>
+              <div class="feat-title">${featured.title}</div>
+              <div class="feat-excerpt">${featured.excerpt}</div>
+              <div class="feat-meta"><div class="av">${initials(featured.author)}</div><span class="av-name">${featured.author}</span><span class="av-dot"></span><span class="av-date">${fmtDate(featured.date)}</span></div>
+              <span class="read-btn">Read Article →</span>
+            </div>
+          </a>
+        </div>`;
+      if(rest.length){
+        html+=`<div class="posts-wrap"><div class="sec-label" style="margin-bottom:20px"><span class="sec-label-text">More Articles</span><span class="sec-label-line"></span></div><div class="posts-grid">`;
+        rest.forEach((p,i)=>{
+          html+=`<a class="post-card fade-up" href="/post.html?slug=${p.slug}" style="animation-delay:${(i+1)*.07}s">
+            <div class="card-img-wrap">${p.image?`<img class="card-img" src="${p.image}" alt="${p.title}" loading="lazy">`:`<div class="card-placeholder">${placeholderSVG}</div>`}</div>
+            <div class="card-body">
+              <div class="card-top"><span class="tag-chip">${p.tag}</span><span class="card-date">${fmtDate(p.date)}</span></div>
+              <div class="card-title">${p.title}</div>
+              <div class="card-excerpt">${p.excerpt}</div>
+              <div class="card-footer"><div style="display:flex;align-items:center;gap:8px"><div class="av">${initials(p.author)}</div><span class="av-name">${p.author}</span></div><span class="read-more">Read →</span></div>
+            </div></a>`;
+        });
+        html+=`</div></div>`;
+      }
+      el.innerHTML=html;
+    }
+    function showEmpty(){
+      document.getElementById('blogContent').innerHTML=`<div class="empty-state"><div class="empty-icon"><svg width="28" height="28" fill="none" stroke="#8B5E3C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3>No posts yet</h3><p>Visit <a href="/admin">opelionglobal.com/admin</a> to publish your first article.</p></div>`;
+    }
+    function setFilter(tag,btn){activeFilter=tag;document.querySelectorAll('.pill').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filterPosts();}
+    function filterPosts(){const q=document.getElementById('searchInput').value.toLowerCase();renderPosts(allPosts.filter(p=>(activeFilter==='all'||p.tag.toLowerCase().includes(activeFilter))&&(!q||p.title.toLowerCase().includes(q)||p.excerpt.toLowerCase().includes(q))));}
+    loadPosts();
+  </script>
+</body>
+</html>
